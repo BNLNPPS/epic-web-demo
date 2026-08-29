@@ -22,6 +22,11 @@ swf-remote; `/doc`, corun-ai). It requires no Apache configuration:
 - `deploy/update_from_dev.sh` — copies `site/` into the served tree and
   runs each demonstrator's generator. Run after any change here; the
   live pages do not update otherwise.
+- `scripts/nightly_maintenance.sh` — the nightly cron job (admin
+  crontab, 03:15 UTC): regenerates the demonstrator pages, extracts
+  their curation output, and publishes an AI assessment report at
+  `/demo/documents/maintenance.html`. State in `~/.epic-web-demo/`;
+  log in `/tmp/cron_epic_web_demo.log`.
 
 ## Docs
 

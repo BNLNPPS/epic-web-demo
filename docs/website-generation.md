@@ -79,6 +79,15 @@ The programmatic steps are deterministic and cheap; the AI step reads
 their output rather than the raw sources, so its cost is small and its
 claims are grounded in the checked data.
 
+This is implemented in `scripts/nightly_maintenance.sh`, run nightly at
+03:15 UTC from the host crontab. The script regenerates the documents
+page to staging and installs it only on generator success, extracts the
+page's Curation section, and passes it with the overnight page diff to a
+headless `claude -p` run whose output is published at
+`/demo/documents/maintenance.html` (an AI-step failure publishes a
+notice there and leaves the pages current). Run state is kept in
+`~/.epic-web-demo/`; the cron log is `/tmp/cron_epic_web_demo.log`.
+
 ## Adoption path
 
 The generators are self-contained and portable. On adoption by the
