@@ -89,7 +89,7 @@ EOF
     head -c 40000 "$DIFF"
 } > "$PROMPT"
 
-if timeout 600 "$CLAUDE" -p --output-format text < "$PROMPT" > "$RAW" 2>"$STATE/claude.err"; then
+if timeout 600 "$CLAUDE" -p --model opus --output-format text < "$PROMPT" > "$RAW" 2>"$STATE/claude.err"; then
     # Publish the HTML document, tolerating a fenced or prefixed reply.
     python3 - "$RAW" "$REPORT" <<'PYEOF'
 import re, sys
