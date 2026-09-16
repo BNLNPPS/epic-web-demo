@@ -80,7 +80,7 @@ their output rather than the raw sources, so its cost is small and its
 claims are grounded in the checked data.
 
 This is implemented in `scripts/nightly_maintenance.sh`, run nightly at
-03:15 UTC from the host crontab. The script regenerates the documents
+03:45 Eastern from the host crontab. The script regenerates the documents
 page to staging and installs it only on generator success, extracts the
 page's Curation section, and passes it with the overnight page diff to a
 headless `claude -p --model opus` run, explicitly constrained to Opus
